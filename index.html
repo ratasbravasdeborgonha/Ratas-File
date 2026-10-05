@@ -1,17 +1,253 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="description" content="Ratas de Borgonha — Official Archive"><title>Ratas de Borgonha — Official Archive</title>
-<link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ratas Bravas de Borgonha - Álbum Oficial</title>
+    <style>
+        :root {
+            --bg-color: #070707;
+            --panel-color: #111111;
+            --panel-hover: #191919;
+            --accent-burgundy: #7a0c1c;
+            --accent-bright: #b3142c;
+            --text-main: #e2e2e2;
+            --text-muted: #858585;
+            --border-color: #262626;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin: 30px 0 25px;
+            border-bottom: 2px dashed var(--accent-burgundy);
+            padding-bottom: 15px;
+            width: 100%;
+            max-width: 850px;
+        }
+
+        h1 {
+            font-size: 2.1rem;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 8px;
+            text-shadow: 2px 2px var(--accent-burgundy);
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 850px;
+            display: grid;
+            gap: 25px;
+        }
+
+        /* Player Box */
+        .player-box {
+            background-color: var(--panel-color);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.9);
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* Proporção 16:9 */
+            height: 0;
+            background: #000;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid var(--accent-burgundy);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .info-panel {
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .album-title-tag {
+            font-size: 1rem;
+            color: #fff;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .btn-external {
+            background-color: var(--accent-burgundy);
+            color: #fff;
+            padding: 8px 15px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 3px;
+            border: 1px solid var(--accent-bright);
+            transition: background 0.2s;
+        }
+
+        .btn-external:hover {
+            background-color: var(--accent-bright);
+        }
+
+        /* Tracklist Box */
+        .tracklist-box {
+            background-color: var(--panel-color);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+        }
+
+        .tracklist-box h3 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--accent-burgundy);
+            padding-left: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #fff;
+        }
+
+        .track-list {
+            list-style: none;
+        }
+
+        .track-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border-color);
+            text-decoration: none;
+            color: var(--text-main);
+            transition: background 0.2s, padding-left 0.2s;
+        }
+
+        .track-item:last-child {
+            border-bottom: none;
+        }
+
+        .track-item:hover {
+            background-color: var(--panel-hover);
+            padding-left: 20px;
+            color: #fff;
+            border-left: 3px solid var(--accent-bright);
+        }
+
+        .track-name {
+            font-size: 0.9rem;
+        }
+
+        .track-action {
+            font-size: 0.8rem;
+            color: var(--accent-bright);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+            width: 100%;
+            max-width: 850px;
+        }
+
+        footer a {
+            color: var(--accent-bright);
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
-<header class="site-header"><a class="brand" href="#">RATAS DE BORGONHA</a><nav><a href="#discografia">DISCOGRAFIA</a><a href="#album">ÁLBUM</a></nav></header>
-<main>
-<section class="hero"><div class="hero-content"><p class="eyebrow">OFFICIAL ARCHIVE · ERA 01</p><h1>Borgonha</h1><p class="subtitle">First Album <span>— Deluxe Edition</span></p><p class="intro">O primeiro capítulo do arquivo das Ratas de Borgonha. Oito faixas, reunidas em uma edição deluxe.</p><a class="primary-button" href="#album">OUVIR O ÁLBUM</a></div></section>
-<section id="discografia" class="section"><div class="section-heading"><p class="eyebrow">RATAS DE BORGONHA</p><h2>Discografia</h2></div><article class="album-card"><div class="album-cover"><div class="cover-text"><small>BORGONHA</small><strong>FIRST<br>ALBUM</strong><span>DELUXE EDITION</span></div></div><div class="album-info"><p class="era-label">ERA 01</p><h3>Borgonha — First Album</h3><p>Deluxe Edition · 8 faixas</p><a href="#album" class="text-button">ABRIR ÁLBUM →</a></div></article></section>
-<section id="album" class="section album-section"><div class="album-header"><div class="mini-cover"></div><div><p class="eyebrow">ERA 01 · DELUXE EDITION</p><h2>Borgonha — First Album</h2><p>Ratas de Borgonha · 8 faixas</p></div></div>
-<div class="player"><div class="player-video"><iframe id="youtubePlayer" src="https://www.youtube.com/embed/dHFidy5Ta_4?rel=0" title="Player do álbum Borgonha — First Album (Deluxe Edition)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div><div class="now-playing"><div><span>TOCANDO AGORA</span><h3 id="currentTitle">Ratas Bravas de Borgonha</h3></div><a id="youtubeLink" href="https://youtu.be/dHFidy5Ta_4" target="_blank" rel="noopener">ABRIR NO YOUTUBE ↗</a></div></div>
-<div class="tracklist" id="tracklist"></div></section>
-</main><footer><p>RATAS DE BORGONHA · OFFICIAL ARCHIVE</p><p class="footer-note">Arquivo independente de catálogo e discografia.</p></footer>
-<script src="js/app.js"></script></body></html>
+
+    <header>
+        <h1>Ratas Bravas de Borgonha</h1>
+        <div class="subtitle">// arquivo oficial de som</div>
+    </header>
+
+    <div class="container">
+        <!-- Player do Álbum (Playlist incorporada) -->
+        <div class="player-box">
+            <div class="video-container">
+                <!-- Player oficial carregando a playlist inteira -->
+                <iframe src="https://www.youtube.com/embed/videoseries?list=PLgP-flLC589bo39_6AQ99cCHdkLdt3mVN" title="Ratas Bravas de Borgonha Player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="info-panel">
+                <span class="album-title-tag">▶ Ouvindo: Playlist Completa do Álbum</span>
+                <a href="https://www.youtube.com/playlist?list=PLgP-flLC589bo39_6AQ99cCHdkLdt3mVN" target="_blank" class="btn-external">Abrir no YouTube ↗</a>
+            </div>
+        </div>
+
+        <!-- Lista de Faixas com Acesso Direto -->
+        <div class="tracklist-box">
+            <h3>Faixas da Playlist</h3>
+            <ul class="track-list">
+                <li>
+                    <a href="https://www.youtube.com/playlist?list=PLgP-flLC589bo39_6AQ99cCHdkLdt3mVN" target="_blank" class="track-item">
+                        <span class="track-name">01. Sessão Completa do Álbum (Faixa Inicial)</span>
+                        <span class="track-action">Ouvir ▶</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.youtube.com/playlist?list=PLgP-flLC589bo39_6AQ99cCHdkLdt3mVN" target="_blank" class="track-item">
+                        <span class="track-name">02. Sequência do Álbum (Faixas Seguintes)</span>
+                        <span class="track-action">Ouvir ▶</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.youtube.com/playlist?list=PLgP-flLC589bo39_6AQ99cCHdkLdt3mVN" target="_blank" class="track-item">
+                        <span class="track-name">03. Faixas Finais / Ruídos &amp; Conversas</span>
+                        <span class="track-action">Ouvir ▶</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>Ratas Bravas de Borgonha &copy; 2026 — Hospedado via <a href="https://pages.github.com/" target="_blank">GitHub Pages</a></p>
+    </footer>
+
+</body>
+</html>
